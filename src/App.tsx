@@ -8,17 +8,18 @@ type Tdata = {
 };
 function App() {
   const [keybord, setKeyboard] = useState<string[]>(createKeybord());
-  const [data, setData] = useState<Tdata | null>(null);
+  const [word, setWord] = useState<string | null>(null);
   useEffect(() => {
     fetch("./data.json")
       .then((res) => res.json())
       .then((json) => {
         const random = Math.floor(Math.random() * json.solutions.length);
-        setData(json.solutions[random]);
+        setWord(json.solutions[random].word);
       });
   }, []);
   return (
     <div className="worddle">
+      <p>{word}</p>
       <div className="keyboard">
         {keybord.map((elem, idx) => {
           return (
