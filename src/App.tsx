@@ -1,8 +1,8 @@
 import { useState, useEffect, MouseEventHandler } from "react";
 import { createKeybord } from "./utilis/createKeyboard";
 import "./App.css";
-import Wordle from "./components/Info";
-import Keyboard from "./components/Keyboard";
+import Info from "./components/Info";
+import Wordle from "./components/Wordle";
 import useWordle from "./hooks/useWordle";
 function App() {
   const [word, setWord] = useState<string | null>(null);
@@ -21,7 +21,7 @@ function App() {
     <div className="worddle">
       <h1>Wordle (Lingo)</h1>
 
-      <Keyboard word={word} />
+      <Wordle word={word} />
     </div>
   );
 }

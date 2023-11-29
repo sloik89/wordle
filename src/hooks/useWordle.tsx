@@ -10,7 +10,6 @@ const useWordle = (word: string | null) => {
   // format a guess into an array of letter objects
   // e.g. [{key:'a',color:'yellow'}]
   const formatGuess = () => {
-    console.log("formating gues ", currentGuess);
     let solution: string[] | null[] = word!.split("");
     let formatedGues = currentGuess.split("").map((elem) => {
       return { letter: elem, color: "grey" };
@@ -36,7 +35,6 @@ const useWordle = (word: string | null) => {
   //   update the isCorrect state if the guess is correct
   //  add one to the turn state
   const addNewGuess = (formated: { letter: string; color: string }[]) => {
-    console.log(word);
     if (word === currentGuess) {
       setIsCorrect(true);
     }
@@ -87,9 +85,6 @@ const useWordle = (word: string | null) => {
     }
   };
 
-  useEffect(() => {
-    console.log(currentGuess);
-  }, [currentGuess]);
   return {
     turn,
     currentGuess,
